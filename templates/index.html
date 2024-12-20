@@ -4,18 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analyse de Genre Musical</title>
+    <style>
+        /* Style global */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #6a11cb, #2575fc);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Conteneur principal */
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 500px;
+        }
+
+        /* Titre principal */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Formulaire */
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="file"] {
+            font-size: 1rem;
+            margin: 15px 0;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #ffffff;
+            color: #333333;
+        }
+
+        button {
+            background: #ff6f61;
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+
+        button:hover {
+            background: #ff4c3b;
+            transform: scale(1.05);
+        }
+
+        /* Résultat */
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 30px;
+            color: #00ffcc;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Analyse de Genre Musical</h1>
-    <form method="post" action="/" enctype="multipart/form-data">
-        <label for="file">Sélectionnez un fichier MP3 :</label><br>
-        <input type="file" name="file" id="file" accept=".mp3" required>
-        <br><br>
-        <button type="submit">Analyser le fichier</button>
-    </form>
-    {% if prediction %}
-    <h2>Résultat :</h2>
-    <p><strong>Le genre musical prédit est :</strong> {{ prediction }}</p>
-    {% endif %}
+    <div class="container">
+        <h1>Analyse de Genre Musical</h1>
+        <form method="post" action="/" enctype="multipart/form-data">
+            <label for="file">Sélectionnez un fichier MP3 :</label>
+            <input type="file" name="file" id="file" accept=".mp3" required>
+            <br><br>
+            <button type="submit">Analyser le fichier</button>
+        </form>
+        {% if prediction %}
+        <h2>Résultat :</h2>
+        <p><strong>Le genre musical prédit est :</strong> {{ prediction }}</p>
+        {% endif %}
+    </div>
 </body>
 </html>
